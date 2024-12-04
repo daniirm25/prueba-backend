@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement()->index();
             $table->string('name', 250);
             $table->integer('code');
-            $table->string('description', 250);
-            $table->unsignedInteger('user_id')->index();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('locations');
     }
 };

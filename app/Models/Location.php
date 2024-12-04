@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Location extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,9 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'code',
-        'price',
-        'description',
+        'name',
+        'image'
     ];
 
     /**
@@ -30,15 +29,5 @@ class Product extends Model
         'created_at', 'updated_at'
     ];
 
-    
-    public function scopeSearch($query, $search)
-    {
-        if($search){
-            return $query->where('name', 'like', "%$search%")
-                        ->orwhere('code', 'like', $search)
-                        ->orwhere('price', 'like', "%$search%")
-                        ->orwhere('description', 'like', "%$search%");
-        }
-    }
 
 }

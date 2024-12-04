@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::group(['prefix' => 'auth', 'middleware' => 'jwt'], function () {
 
-    Route::post('createTask', [TaskController::class, 'createTask'])->name('createTask');
-    Route::post('updateTask', [TaskController::class, 'updateTask']);
-    Route::get('showTask/{id}', [TaskController::class, 'showTask']);
-    Route::get('deleteTask/{id}', [TaskController::class, 'deleteTask']);
-    Route::get('getTasks', [TaskController::class, 'getTasks']);
+    Route::post('createLocation', [LocationController::class, 'createLocation']);
+    Route::get('locations', [LocationController::class, 'locations']);
 
 });
 
